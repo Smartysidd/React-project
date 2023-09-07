@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Import necessary components for routing
-import NavBar from './NavBar'; // Make sure to import your NavBar and other components
-import Home from './Home';
-import AboutUs from './AboutUs';
-import Courses from './Courses'; // You should import your Courses component
-import Contact from './Contact';
-import SignIn from './SignIn';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import AboutUs from './components/AboutUs';
+import Courses from './components/Courses'; 
+import Contact from './components/Contact';
+import SignIn from './components/SignIn';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -24,7 +24,7 @@ function App() {
       <NavBar />
       <div className="App">
         <h1>Online Courses</h1>
-        {/* Pass the courses and addToCart function to the Courses component */}
+      
         <Courses courses={courses} onAddToCart={addToCart} />
         <div className="cart">
           <h2>Shopping Cart</h2>

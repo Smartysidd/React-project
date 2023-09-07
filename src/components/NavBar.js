@@ -13,9 +13,7 @@ function NavBar() {
       <h3 className='text-blue-400'>Contact</h3>
      <div>
       
-     {/* <Link to="/" className="text-blue-400">
-        Movies
-      </Link> */}
+     
      <Link className='NavLink' to = "/">Home</Link>
       <Link className='NavLink' to = "/AboutUs">AboutUs</Link>
       <Link className='NavLink' to = "/Courses">Courses</Link>
