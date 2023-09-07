@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Courses = () => {
-  // Dummy data for courses (you can replace this with actual data)
+  
   const courses = [
     {
       id: 1,
@@ -32,6 +32,8 @@ const Courses = () => {
             <h3>{course.title}</h3>
             <p>Instructor: {course.instructor}</p>
             <p>Duration: {course.duration}</p>
+            <p>Price: ${course.price}</p>
+            <button onClick={() => onAddToCart(course)}>Add to Cart</button>
           </li>
         ))}
       </ul>
@@ -40,3 +42,5 @@ const Courses = () => {
 };
 
 export default Courses;
+
+

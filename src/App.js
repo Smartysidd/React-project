@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import SignIn from './components/SignIn';
 import Courses from './components/Courses';
 import Home from './components/Home';
+import  {useState}from 'react';
 import { BrowserRouter,Routes,Route,Link} from 'react-router-dom';
 
 
@@ -32,7 +33,28 @@ import { BrowserRouter,Routes,Route,Link} from 'react-router-dom';
 
 
 function App() {
+  const [CartItems,setCartItems]=useState([]);
+  const courses=[
+    { id:1,name:"course 1", price:50},
+    { id:2,name:"course 2", price:75},
+    { id:3,name:"course 3", price:100},];
+    const AddToCart=(course)=>{
+      setCartItems([...CartItems,course]);
+    };
+  
   return (
+    <div className="App">
+      <h1>online Courses</h1><Courses courses={courses} onAddTOCart={addToCart}/>
+      <div className="cart">
+        <h2>Shopping Cart</h2>
+        <ul>
+          {cartItems.map((item)=>(<li key={item.id}>
+            {item.name}-${item.price}
+            </li>
+            ))}
+        </ul>
+      </div>
+    </div>);
     
     <BrowserRouter>
     <NavBar/>
@@ -65,7 +87,7 @@ function App() {
     </BrowserRouter>
     
  
-  );
+
 }
 
 export default App;

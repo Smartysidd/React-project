@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Courses.css';
 class Contact extends Component {
   constructor() {
     super();
@@ -16,9 +16,9 @@ class Contact extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send data to a server)
+   
     console.log('Form submitted:', this.state);
-    // You can also reset the form fields here if needed
+   
     this.setState({
       name: '',
       email: '',
