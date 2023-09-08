@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
 import NavBar from './components/NavBar';
 import Home from './components/Home';
@@ -6,48 +6,31 @@ import AboutUs from './components/AboutUs';
 import Courses from './components/Courses'; 
 import Contact from './components/Contact';
 import SignIn from './components/SignIn';
-
+import Cart from './components/Cart';
+import { Provider } from 'react-redux'
+import store from './components/store/storee';
+import NotFound from './components/NotFound';
 function App() {
-  const [cartItems, setCartItems] = useState([]);
-  const courses = [
-    { id: 1, name: "course 1", price: 50 },
-    { id: 2, name: "course 2", price: 75 },
-    { id: 3, name: "course 3", price: 100 },
-  ];
-
-  const addToCart = (course) => {
-    setCartItems([...cartItems, course]);
-  };
-
   return (
+    <div className="App">
+    <Provider store={store}>
     <BrowserRouter>
       <NavBar />
-      <div className="App">
-        <h1>Online Courses</h1>
       
-        <Courses courses={courses} onAddToCart={addToCart} />
-        <div className="cart">
-          <h2>Shopping Cart</h2>
-          <ul>
-            {cartItems.map((item) => (
-              <li key={item.id}>
-                {item.name} - ${item.price}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
+   
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/Courses" element={<Courses />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/SignIn" element={<SignIn />} />
-      </Routes>
+  <Route path='/' element={<Home />} />
+  <Route path='/AboutUs' element={<AboutUs />} />
+  <Route path='/Cart' element={<Cart />} />
+  <Route path='/Contact' element={<Contact />} />
+  <Route path='/SignIn' element={<SignIn />} />
+  <Route path='/Courses' element={<Courses />} />
+  <Route path='*' element={<NotFound />} />
+</Routes>
     </BrowserRouter>
+    </Provider>
+    </div>
   );
 }
 
 export default App;
-

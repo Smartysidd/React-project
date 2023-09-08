@@ -1,17 +1,41 @@
+// import React from "react";
+// import {useSelector} from 'react-redux'
+// import Courses from "./Courses";
+
+// const Cart = ({ cartItems, onRemoveFromCart }) => {
+//   return (
+//     <div>
+//     <div className="carWrappert">
+//       {
+//         Courses.map((item)=>(
+//           <div className='cartCard'>
+//             <img src={item.image}></img>
+//             <h5>{item.title}</h5>
+//             <h5>Price:${item.price}</h5>
+//           </div>
+//         ))
+// }
+// </div>
+// </div>
+//   )}
+
+// export default Cart;
+
 import React from "react";
 
 const Cart = ({ cartItems, onRemoveFromCart }) => {
   return (
-    <div className="cart">
-      <h2>Products Cart</h2>
-      <ul>
+    <div>
+      <div className="cartWrapper">
         {cartItems.map((item) => (
-          <li key={item.id}>
-            {item.name} - ${item.price}{" "}
-            <button onClick={() => onRemoveFromCart(item)}>Remove</button>
-          </li>
+          <div className='cartCard' key={item.id}>
+            <img src={item.image} alt={item.title} />
+            <h5>{item.title}</h5>
+            <h5>Price: ${item.price}</h5>
+            <button onClick={() => onRemoveFromCart(item.id)}>Remove</button>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

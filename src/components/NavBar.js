@@ -1,27 +1,83 @@
-import React from 'react'
-import Logo from '../downloadcc.png'
-import { Link } from 'react-router-dom'
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import Logo from '../downloadcc.png';
+// import {useSelector} from 'react-redux'
 
-function NavBar() {
+// const NavBar = () => {
+//   const items=useSelector((state)=>state.cart)
+//   console.log(items.length)
+//   return (
+//     <div style={{
+//       display: "flex",
+//       alignItems: "center",
+//       justifyContent: "space-between",
+//       padding: "10px",
+//       borderBottom: "1px solid #ccc",
+//     }}>
+//       <div>
+//         <img src={Logo} alt="Company Logo" className="w-[50px]" />
+//       </div>
+//       <div>
+//         <Link className="navLink" to="/">
+//           Home
+//         </Link>
+//         <Link className="navLink" to="/courses">
+//           Courses
+//         </Link>
+//         <Link className="navLink" to="/aboutUs">
+//           About Us
+//         </Link>
+//         <Link className="navLink" to="/cart">
+//           Cart
+//         </Link>
+//         <span className="cartCount">Cart items:0</span>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default NavBar;
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Logo from '../downloadcc.png';
+import { useSelector } from 'react-redux';
+
+const NavBar = () => {
+  const cartItems = useSelector((state) => state.cart);
+  const cartCount = cartItems.length;
+
   return (
-    <div className='flex border space-x-8 items-center pl-3 py-4' >
-      <img src={Logo} className='w-[50px]'/>
-      <h3 className='text-blue-400 '>Home</h3>
-      <h3 className='text-blue-400'>AboutUs</h3>
-      <h3 className='text-blue-400'>Courses</h3>
-      <h3 className='text-blue-400'>SignIn</h3>
-      <h3 className='text-blue-400'>Contact</h3>
-     <div>
-      
-     
-     <Link className='NavLink' to = "/">Home</Link>
-      <Link className='NavLink' to = "/AboutUs">AboutUs</Link>
-      <Link className='NavLink' to = "/Courses">Courses</Link>
-      <Link className='NavLink' to = "/Contact">Contact</Link>
-      <Link className='NavLink' to = "/SignIn">SignIn</Link>
-     </div>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "10px",
+        borderBottom: "1px solid #ccc",
+      }}
+    >
+      <div>
+        <img src={Logo} alt="Company Logo" className="w-[50px]" />
+      </div>
+      <div>
+        <Link className="navLink" to="/">
+          Home
+        </Link>
+        <Link className="navLink" to="/courses">
+          Courses
+        </Link>
+        <Link className="navLink" to="/aboutUs">
+          About Us
+        </Link>
+        <Link className="navLink" to="/cart">
+          Cart
+        </Link>
+        <span className="cartCount">Cart items: {cartCount}</span>
+      </div>
     </div>
-  )
+  );
 };
 
 export default NavBar;
